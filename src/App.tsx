@@ -65,8 +65,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setProp({ test: `${process.env.REACT_APP_TEST}` });
-
+    setProp({ test: `${import.meta.env.VITE_TEST}` });
     // SocketIO 연결시 client socket 객체 생성
     // const socket = Socket(`server url`).connect();
     // dispatch(socketConnect(socket));
@@ -81,9 +80,11 @@ function App() {
         <Navbar />
         <Wrapper>
           <Routes>
-            <Route index element={<Home />} />
-            <Route path='video'>
-              <Route path=':id' element={<Video prop={prop} />} />
+            <Route path={'/'}>
+              <Route index element={<Home />} />
+              <Route path={'video'}>
+                <Route path={':id'} element={<Video prop={prop} />} />
+              </Route>
             </Route>
           </Routes>
         </Wrapper>
