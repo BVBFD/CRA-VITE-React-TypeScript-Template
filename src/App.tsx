@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    overflow-x: hidden;
+    overflow: hidden;
   }
 `;
 
