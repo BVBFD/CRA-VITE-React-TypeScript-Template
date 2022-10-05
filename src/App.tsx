@@ -16,7 +16,24 @@ import { socketConnect } from './redux/socketReducer';
 // styled-components 전역 설정
 // theme을 전달하려면 react-app-env.d.ts에서 관련 타입을 정의해야함
 const GlobalStyle = createGlobalStyle`
-  body {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    transition: all 0.2s linear;
+    user-select: none;
+    scroll-behavior: smooth;
+  }
+
+  a {
+    text-decoration: none;
+    list-style-type: none;
+    color: inherit;
+  }
+
+  html {
     &::-webkit-scrollbar {
       width: 0.4rem;
     }
@@ -26,8 +43,12 @@ const GlobalStyle = createGlobalStyle`
     }
 
     &::-webkit-scrollbar-track {
-      background:  ${(props) => props.theme.scrollbarTrack};
+      background: ${(props) => props.theme.scrollbarTrack};
     }
+  }
+
+  #root {
+    overflow-x: hidden;
   }
 `;
 
@@ -36,7 +57,7 @@ const Container = styled.div`
   position: relative;
   top: 2rem;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
   height: 700vh;
   overflow-x: hidden;
 `;
